@@ -6,7 +6,6 @@
     border: none;
     background-color: transparent;
     background-repeat: no-repeat;
-    border: 1px solid red;
     background-position: center;
     cursor: pointer;
 }
@@ -32,4 +31,8 @@ button:active{
 #forward{
     background-image: url('../images/+10.svg');
 
+}
+
+#play:hover,#backward:hover,#forward:hover,#pausa:hover{
+    transform: scale(1.3);
 }

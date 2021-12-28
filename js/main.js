@@ -8,10 +8,16 @@ const $backward = document.querySelector('#backward');
 
 const $forward = document.querySelector('#forward');
 
+const $progress = document.querySelector('#progress');
+
 $play.addEventListener('click', handlePlay);
 $pausa.addEventListener('click', handlePausa);
 $backward.addEventListener('click',handleBackward);
 $forward.addEventListener('click',handleForward);
+$video.addEventListener('loadedmetadata', handleLoaded);
+$video.addEventListener('timeupdate', handleTimeUpdate);
+$progress.addEventListener('input',handleInput);
+
 
 
 $pausa.hidden = true;
@@ -45,3 +51,16 @@ function handleForward(){
 }               
 
 
+function handleLoaded(){
+    $progress.max = $video.duration
+    console.log('El video ha cargado',$video.duration);
+
+}
+
+function handleTimeUpdate(){
+    $progress.value = $video.currentTime;
+}
+
+function handleInput(){
+    $video.currentTime = $progress.value;
+}
